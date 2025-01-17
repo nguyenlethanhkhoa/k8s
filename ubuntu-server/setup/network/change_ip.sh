@@ -3,7 +3,7 @@
 # Check if an IP address is provided as an argument
 if [ -z "$1" ]; then
     echo "Usage: $0 <ip_address>"
-    echo "Example: $0 192.168.100.1/24"
+    echo "Example: $0 192.168.50.1/24"
     exit 1
 fi
 
