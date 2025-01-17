@@ -3,7 +3,7 @@
 # Check if an IP address is provided as an argument
 if [ -z "$1" ]; then
     echo "Usage: $0 <ip_address>"
-    echo "Example: $0 192.168.50.1/24"
+    echo "Example: $0 192.168.50.1"
     exit 1
 fi
 
@@ -23,6 +23,7 @@ fi
 # Replace {ip_address} with the provided IP address and save to output file
 sed "s/{ip_address}/$IP_ADDRESS/" "$TEMPLATE_FILE" > "$OUTPUT_FILE"
 sudo cp $OUTPUT_FILE /etc/netplan/50-cloud-init.yaml
+sudo netplan apply
 
 # Check if the operation was successful
 if [ $? -eq 0 ]; then
