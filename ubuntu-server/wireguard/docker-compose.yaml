@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+    wireguard_cloudflared:
+        image: cloudflare/cloudflared:latest
+        container_name: wireguard_cloudflared
+        hostname: wireguard_cloudflared
+        command: "tunnel --no-autoupdate run"
+        environment:
+            - TUNNEL_TOKEN=eyJhIjoiNTI5MGQxMDZkNjE5NjliY2E4YTZlOGM4ODc2OTJlYmIiLCJ0IjoiYjMyYzgwNzQtMzQ5Yi00YWI4LWE3ODctZDhlNTcyZjY2ZTY2IiwicyI6IlpqWXpaVGxtTTJVdFlqWmpNQzAwTkdGaUxUbGhNREF0WkRKak1HSTRNbVUzTVdGbCJ9
+        restart: "always"
+        network_mode: host
